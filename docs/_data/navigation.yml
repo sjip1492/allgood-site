@@ -1,0 +1,10 @@
+main:
+  - title: About
+    url: /about/
+    nav-class-name: "kendra-nav-about"
+  - title: "Projects"
+    url: /projects/
+    nav-class-name: "kendra-nav-projects"
+  - title: "Resume"
+    url: /resume/
+    nav-class-name: "kendra-nav-resume"

@@ -1,0 +1,587 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
+@import "minimal-mistakes"; // main partials
+
+// SITE-WIDE VARIABLES
+$fade-in-length: .5s;
+$hover-overlay-color: rgba(0, 0, 0, 0.75);
+$hover-overlay-text: #ffffff;
+$normal-font-size: 16px;
+$masthead-links-hover-color: teal;
+
+// SITE WIDE STYLING
+body {
+  font-weight: 250 !important;
+  scroll-behavior: smooth;
+}
+a {
+  font-weight: 250 !important
+}
+
+h1, h2, h3 {
+  letter-spacing: 1.5px;
+}
+
+h1 {
+  font-weight: 550;
+  font-size: 35px;
+  font-style: italic;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 28px;
+  font-style: italic;
+}
+
+h3 {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.initial-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+
+/* Works on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+*::-webkit-scrollbar-track {
+  background: white;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 20px;
+  border: 3px solid white;
+}
+
+
+@font-face {
+    font-family: 'Orator';
+    src: url('../../OratorS0.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+//MASTHEAD STYLING
+.masthead {
+    border-bottom: none;
+}
+.masthead__inner-wrap {
+  @include breakpoint($medium) {
+    // padding: 1em 0;
+  }
+}
+.navicon {
+    background: $masthead-links-hover-color;
+
+    &:hover {
+        background: black;
+    }
+
+    &:before, &:after {
+        background: $masthead-links-hover-color;
+
+        &:hover {
+            background: black;
+        }
+    }
+}
+
+// FOOTER STYLING
+#footer {
+  background-color: transparent;
+
+  .page__footer-copyright {
+      color: black;
+      margin-top: 0;
+  }
+
+  a {
+    color: black;
+
+    &:hover {
+      color: black;
+      text-decoration: none;
+    }
+  }
+}
+
+// HOMEPAGE STYLING
+.layout--kendra_home {
+    a.site-title.kendra-link {
+      &:before {
+        -webkit-transform: scaleX(1);
+        -ms-transform: scaleX(1);
+        transform: scaleX(1);
+      }
+    }
+
+    .masthead {
+        background-color: transparent;
+        position: absolute;
+        width: 100%;
+    }
+
+    #footer {
+        position: absolute;
+        bottom: 0;
+    }
+    
+    #site-nav {
+        background-color: transparent;
+    }
+
+    .initial-content {
+      max-width: none;
+    }
+}
+
+// PROJECTS PAGE STYLING
+.layout--kendra_projects {
+  .kendra-nav-projects {
+    a.kendra-link {
+      &:before {
+        -webkit-transform: scaleX(1);
+        -ms-transform: scaleX(1);
+        transform: scaleX(1);
+      }
+    }
+  }
+
+  .projects {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+
+    @include breakpoint($medium) {
+      grid-template-columns: repeat(3, 33.333%);
+    }
+  }
+
+  .hover-container {
+    height: 33vh;
+    object-fit: cover;
+    padding: 1em;
+
+    @include breakpoint($medium) {
+      height: 50vh;
+    }
+  }
+
+  .content {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .content-image {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  .project {
+      float: left;
+      position: relative;
+      max-width: 50%;
+      height: auto;
+      padding: 25px;
+      display: grid;
+
+      .project-image {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          padding: 15%;
+      }
+
+      @include breakpoint($small) {
+          width: 50%;
+      }
+      @include breakpoint($large) {
+          width: 33.333%;
+      }
+
+      &::after {
+          content: "";
+          display: block;
+          padding-bottom: 75%;
+      }
+  }
+}
+    
+// PROJECT PAGE STYLING
+.layout--kendra_project {
+    .project-images {
+        max-height: 100vh;
+    }
+
+    .masthead__menu {
+      @include breakpoint($medium) {
+        padding-right: 20vw !important;
+      }
+    }
+    .dl-link {
+      color: white;
+      &:hover {
+        color: $masthead-links-hover-color;
+      }
+    }
+
+    .project-image-nav {
+        width: 100%;
+        padding: 20px 0;
+    }
+
+    .slick-arrow {
+        left: 0;
+        right: 0;
+        position: unset;
+        display: inline;
+        &:before {
+          color: white;
+        }
+    }
+    .slick-prev {
+        float: left;
+    }
+    .slick-next {
+        padding-right: 20px;
+        float: right;
+
+    }
+
+    .image-description {
+        // font-family: 'Orator', sans-serif;
+        font-family: sans-serif;
+        text-align: center;
+        padding: 0 25px;
+        width: 50%;
+        margin: 0 auto;
+        font-size: 12px;
+
+        @include breakpoint($medium) {
+            padding: 0;
+        }
+    }
+
+    .project-description-container {
+        height: 100%;
+        right: 0;
+        top: 0;
+        padding: 20px;
+
+        -moz-opacity:.85;
+        filter:alpha(opacity=85);
+        opacity:.85;
+        z-index: 10000000;
+
+        --webkit-backdrop-filter: blur(5px);
+        backdrop-filter: blur(5px);
+
+        @include breakpoint($medium) {
+          position: fixed;
+          width: 20vw;
+          padding: 100px 25px;
+        }
+    }
+
+    .project-title {
+      font-weight: 250;
+      font-size: 18px;
+      letter-spacing: .05em;
+    }
+
+    .project-description {
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: antialiased !important;
+      -moz-font-smoothing: antialiased !important;
+      text-rendering: optimizelegibility !important;
+      letter-spacing: .03em;
+      font-weight: 300;
+      line-height: 1.5em;
+    }
+
+    .project-image-container {
+      padding: 50px;
+    }
+
+    .project-image {
+        width: 75vw;
+        padding: 10px;
+        margin: 0 auto;
+
+        @include breakpoint($medium) {
+            padding: 10 25px;
+            height: 75vh;
+            width: auto;
+        //   max-height: 75vh;
+        //   max-width: none;
+        //   // padding: 0;
+        //   max-height: 100vh;
+
+        //   &:last-child {
+        //       padding-right: 33vw;
+        //   }
+
+        }
+    }
+}
+
+// RESUME STYLING
+.layout--kendra_resume {
+  .kendra-nav-resume {
+    a.kendra-link {
+      &:before {
+        -webkit-transform: scaleX(1);
+        -ms-transform: scaleX(1);
+        transform: scaleX(1);
+      }
+    }
+  }
+
+  .initial-content {
+    padding: 20px;
+    @include breakpoint($medium) {
+      margin: 0 auto;
+      width: 65%;
+    }
+  }
+  .resume-container {
+    margin-bottom: 10px;
+    line-height: 2.5em;
+  }
+  .resume-object {
+    display: block;
+    width: 100%;
+    height: 630px;
+
+    @include breakpoint($medium) {
+        height: 750px;
+    }
+
+    @include breakpoint($large) {
+        height: 1150px;
+    }
+  }
+
+  div.resumes > div.resume:not(:last-child)
+  { 
+    padding-bottom: 2em;
+  }
+}
+
+// ABOUT STYLING
+.layout--kendra_about {
+  .kendra-nav-about {
+    a.kendra-link {
+      &:before {
+        -webkit-transform: scaleX(1);
+        -ms-transform: scaleX(1);
+        transform: scaleX(1);
+      }
+    }
+  }
+
+  .initial-content{
+    padding: 10px;
+  }
+
+  .about-text-container {
+    padding: 10px;
+
+    @include breakpoint($medium) {
+      float: right;
+      width: 50%;
+    }
+  }
+
+  .image-container {
+    padding: 10px;
+
+    @include breakpoint($medium) {
+      float: left;
+      width: 50%;
+    }
+  }
+}
+
+
+
+// UTILS STYLING
+.dl-link {
+  color: black;
+
+  &:hover {
+    color: black;
+  }
+}
+
+h2.kendra-h2 {
+  margin: 0;
+  font-weight: 250;
+  font-style: normal;
+  font-size: 20px;
+}
+
+.kendra-link {
+    // font-family: 'Orator', sans-serif;
+    padding: 20px;
+    font-size: 20px;
+    padding: 0 10px;
+    margin: 0;
+    // font-weight: 200;
+    letter-spacing: 1.5px;
+    font-weight: 150 !important;
+    color: #333;
+
+    &:before {
+      top: 50%;
+      bottom: 50%;
+      height: 2px !important;
+      background: teal !important;
+      z-index: -1;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+}
+
+a.kendra-link {
+  // font-weight: 200 !important;
+    letter-spacing: 1.5px;
+    color: #333;
+    font-weight: 100 !important;
+}
+
+.site-title.kendra-link {
+    position: relative;
+
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 100%;
+      -webkit-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+      -webkit-transform: scaleX(0) translate3d(0, 0, 0);
+      transform: scaleX(0) translate3d(0, 0, 0);
+    }
+
+    &:hover {
+      &:before {
+        -webkit-transform: scaleX(1);
+        -ms-transform: scaleX(1);
+        transform: scaleX(1);
+      }
+    }
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: black white;
+}
+ 
+*, *:before, *:after{
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing:border-box;
+  box-sizing: border-box;
+}
+ 
+body{
+  background: #f9f9f9;
+  font-size: 16px;
+  font-family: 'Raleway', sans-serif;
+}
+ 
+.main-title{
+  color: #2d2d2d;
+  text-align: center;
+  padding: 0.7em 0;
+}
+ 
+.hover-container .title{
+  color: #1a1a1a;
+  text-align: center;
+  margin-bottom: 10px;
+}
+ 
+.content {
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+}
+ 
+.content .image-overlay {
+  background: rgba(0,0,0,0.7);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  -webkit-transition: all 0.4s ease-in-out 0s;
+  -moz-transition: all 0.4s ease-in-out 0s;
+  transition: all 0.4s ease-in-out 0s;
+}
+ 
+.content:hover .image-overlay{
+  opacity: 1;
+}
+ 
+.content-image{
+  width: 100%;
+}
+ 
+.content-details {
+  position: absolute;
+  text-align: center;
+  padding-left: 1em;
+  padding-right: 1em;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  -moz-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+
+  color: #fff;
+  font-weight: 250;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.5em;
+}
+ 
+.content:hover .content-details{
+  top: 50%;
+  left: 50%;
+  opacity: 1;
+}
+ 
+.content-details h3 {
+  font-weight: 250;
+}
+ 
+.fadeIn-bottom {
+  top: 80%;
+}

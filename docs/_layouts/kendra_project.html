@@ -1,0 +1,68 @@
+---
+layout: kendra_default_no_footer
+after_scripts:
+  - "/assets/js/kendra_project.js"
+download_button_text: "[Download Booklet]"
+---
+{% for project in site.data.projects.projects %}
+  {% if project.title == page.title %}
+    <div class="project">
+      <div class="project-description-container {{ project.class }}" {% if page.project_description_color or page.project_description_text_color %}style="{% if page.project_description_color %}background-color: {{ page.project_description_color }};{% endif %} {% if page.project_description_text_color %}color: {{ page.project_description_text_color }};{% endif %}"{% endif %}>
+        <p class="project-title">
+          {{ project.title }}
+        </p>
+
+        {% if project.year %}
+          <p class="project-year">
+            {{ project.year }}
+          </p>
+        {% endif %}
+
+        {% if project.description %}
+          <p class="project-description">
+            {{ project.description }}
+          </p>
+        {% endif %}
+
+        {% if content %}
+          <p class="project-description">
+            {{ content }}
+          </p>
+        {% endif %}
+
+        {% if project.download_link %}
+          <a class="dl-link" href="{{ site.baseurl }}{{ project.download_link }}" download>
+            {{ layout.download_button_text }}
+          </a>
+        {% endif %}
+
+
+        {% if project.images.size > 1 %}
+          <div class="project-image-nav"></div>
+        {% endif %}
+      </div>
+
+      {% if project.images.size > 0 %}
+        <div class="project-images">
+            {% for image_url in project.images %}
+                <div class="project-image-container">
+                  <!-- REMOTE VS LOCAL -->
+                    {% if image_url.type == "video" %}
+                      <video class="project-image" controls>
+                        <source src="{{ site.baseurl }}{{ image_url.url }}" type=video/mp4>
+                        <!-- <source src="{{ image_url.url }}" type=video/mp4> -->
+                      </video>
+                    {% else %}
+                      <img class="project-image" src="{{ site.baseurl }}{{ image_url.url }}">
+                      <!-- <img class="project-image" src="{{ image_url.url }}"> -->
+                    {% endif %}
+                    {% if image_url.description %}
+                      <figcaption class="image-description">{{ image_url.description }}</figcaption>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+      {% endif %}
+    </div>  
+  {% endif %}
+{% endfor %}

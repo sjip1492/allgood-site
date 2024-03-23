@@ -1,0 +1,25 @@
+---
+layout: kendra_default
+---
+{% if site.data.projects %}
+    <div class="projects">
+        {% for project in site.data.projects.projects %}
+            <div class="hover-container">
+                <div class="content">
+                    <!-- REMOTE VS LOCAL -->
+                    <a href="{{ site.baseurl }}{{ project.project_url }}">
+                    <!-- <a href="{{ project.project_url }}"> -->
+                        <div class="image-overlay"></div>
+                        <!-- REMOTE VS LOCAL -->
+                        <img class="content-image" src="{{ site.baseurl }}{{ project.spotlight_image_url }}">
+                        <!-- <img class="content-image" src="{{ project.spotlight_image_url }}"> -->
+                        <div class="content-details fadeIn-bottom">
+                            <h3 class="content-title">{{ project.title }}</h3>
+                            <p class="content-text">({{ project.year }})</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}

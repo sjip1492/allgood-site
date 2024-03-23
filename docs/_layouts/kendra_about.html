@@ -1,0 +1,17 @@
+---
+layout: kendra_default
+---
+<div class="about-container">
+    {% if page.about_image %}
+    <!-- REMOTE VS LOCAL -->
+        <div class="image-container">
+            <img class="project-image" src="{{ site.baseurl }}{{ page.about_image }}">
+            <!-- <img class="" src="{{ page.about_image }}"> -->
+        </div>
+    {% endif %}
+    {% if content %}
+        <div class="about-text-container">
+            {{ content }}
+        </div>
+    {% endif %}
+</div>
