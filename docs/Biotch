@@ -1,6 +1,8 @@
-- title: Biotch
-    project_url: "/biotch"
-    year: 2024
-    spotlight_image_url: "/assets/images/projects/cyclery/small four kendras copy.png"
-    images:
-      - url: "/assets/images/projects/cyclery/bike logo.png"
+---
+layout: kendra_project
+title: Biotch
+permalink: /biotch/
+project_description_text_color: white
+project_description_color: black
+---
+textextextext
