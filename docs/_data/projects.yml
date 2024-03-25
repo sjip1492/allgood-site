@@ -199,3 +199,11 @@ projects:
       - url: "/assets/images/projects/journey/b27ab710111f7aaaec926291_rw_1920.jpg"
         description:  >-
           Loom Specs: AVL Computer Dobby, 16 Harnesses,12 dents/inch, 1end/dent, 12 ends/inch
+  - title: Biotch
+    project_url: "/biotch"
+    year: 2024
+    spotlight_image_url: "/assets/images/projects/journey/26f6481cdeffd65419ab55ae_rw_1200.jpg"
+    images:
+      - url: "/assets/images/projects/journey/811622897f3493cf6f27058d_rw_1200.jpg"
+        description: >-
+          Loom Specs: AVL Computer Dobby, 8 Harnesses,12 dents/inch, 1end/dent, 12 ends/inch
