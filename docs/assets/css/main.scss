@@ -147,6 +147,34 @@ h3 {
 
 // PROJECTS PAGE STYLING
 .layout--kendra_projects {
+    .kendra-link {
+      &:before {
+        background: rgb(255,3,129) !important;
+      }
+  }
+  .navicon {
+    background: rgb(255,3,129);
+
+    &:before, &:after {
+        background: rgb(255,3,129);
+    }
+  }
+  background-image:url('/assets/images/unnamed.jpg');
+
+  .greedy-nav {
+    background: none;
+    a {
+      &:hover {
+        color: white;
+      }
+    }
+  }
+  #site-nav {
+    color: white;
+  }
+  .kendra-link {
+    color: white;
+  }
   .kendra-nav-projects {
     a.kendra-link {
       &:before {
@@ -224,7 +252,7 @@ h3 {
     
 // PROJECT PAGE STYLING
 .layout--kendra_project {
-    .project-images {
+  .project-images {
         max-height: 100vh;
     }
 
@@ -244,6 +272,7 @@ h3 {
         width: 100%;
         padding: 20px 0;
     }
+    
 
     .slick-arrow {
         left: 0;
@@ -296,8 +325,11 @@ h3 {
           width: 20vw;
           padding: 100px 25px;
         }
-    }
 
+        background: rgb(0,0,0);
+        background: linear-gradient(90deg, rgba(0,0,0,0.01726628151260501) 0%, rgba(32,31,31,0.9612438725490196) 5%);
+      }
+      
     .project-title {
       font-weight: 250;
       font-size: 18px;

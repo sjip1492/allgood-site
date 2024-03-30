@@ -1,14 +1,15 @@
 $(document).ready(function(){
     $('.project-images').slick({
-        infinite: true,
+        infinite: false,
         slidesToShow: 1,
+        slidesToScroll: 1,
         centerMode: true,
         variableWidth: true,
         arrows: true,
-        autoplay: true,
-        autoplaySpeed: 2500,
+        autoplay: false,
         accessibility: true,
         pauseOnHover: true,
+        responsive: true,
         appendArrows: $('.project-image-nav')
     });
 });

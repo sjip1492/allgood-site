@@ -2,8 +2,8 @@ main:
   - title: About
     url: /about/
     nav-class-name: "kendra-nav-about"
-  - title: "Projects"
-    url: /projects/
+  - title: "Work"
+    url: /work/
     nav-class-name: "kendra-nav-projects"
   - title: "Resume"
     url: /resume/
