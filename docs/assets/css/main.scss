@@ -159,7 +159,7 @@ h3 {
         background: rgb(255,3,129);
     }
   }
-  background-image:url('/assets/images/unnamed.jpg');
+  background-image:url('{{ site.fullurl }}/assets/images/unnamed.jpg');
 
   .greedy-nav {
     background: none;

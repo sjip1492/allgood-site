@@ -1,5 +1,5 @@
-import * as THREE from '/assets/js/three.module.js';
-import { GUI } from '/assets/js/dat.gui.module.js';
+import * as THREE from './three.module.js';
+import { GUI } from './dat.gui.module.js';
 
 var params = {
     enableWind: true,
@@ -37,7 +37,7 @@ var pins = [];
 var windForce = new THREE.Vector3( 0, 0, 0 );
 
 var ballPosition = new THREE.Vector3( 0, - 45, 0 );
-var ballSize = window.innerHeight / 10;
+var ballSize = window.innerHeight / 8;
 
 var tmpForce = new THREE.Vector3();
 
@@ -275,7 +275,7 @@ function simulate( now ) {
     if ( params.showBall ) {
 
         // find intersections
-        sphere.visible = false;
+        // sphere.visible = true;
 
         raycaster.setFromCamera( mouse, camera );
 
